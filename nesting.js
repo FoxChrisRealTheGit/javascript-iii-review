@@ -302,36 +302,39 @@ var starships = [
 ]
 
 // access manufacturer of the millenium falcon (index 3)
-var milleniumFalcon
+var milleniumFalcon = starships[3];
 milleniumFalcon;
 
-var milleniumFalconManufacturer;
+var milleniumFalconManufacturer= starships[3].manufacturer;
 milleniumFalconManufacturer;
 
 // access the cost_in_credits of the death star (index 2)
-var deathStarCost;
+var deathStarCost = starships[2].cost_in_credits;
 deathStarCost;
 
 // get the name of the starship in index 19
-var ship19 = starships[19].name
+var ship19 = starships[19].name;
 ship19;
 
 // make an array of all the names of the ships
-var shipsNames //= starships.map()
+var shipsNames = starships.map((x, i, arr) => x.name);
 shipsNames;
 
 // make an array of all the manufacturers DO NOT WORRY ABOUT DUPLICATES
-var manufacturers //= starships.map()
+var manufacturers = starships.map((x, i, arr) => x.manufacturer);
 manufacturers;
 
 // make an array of all the ships with a passengers > 10
-var bigShips //= starships.filter()
+var bigShips = starships.filter((x, i, arr) => x.passengers > 10);
 bigShips;
 
 // get an array of all the ships with a starship_class of Starfighter
-var myArmy //= starships.filter()
+var myArmy = starships.filter((x, i, arr) => x.starship_class === 'Starfighter');
 myArmy;
 
 // find the total cost of all the ships
-var totalCost //= starships.reduce()
+var totalCost = starships.map((x, i, arr)=>{
+    if(x.cost_in_credits.toLowerCase() === 'unknown'){
+        x.cost_in_credits = '0';}
+    return x}).reduce((p, x, i, arr)=>p + Number(x.cost_in_credits), 0) ;
 totalCost;
